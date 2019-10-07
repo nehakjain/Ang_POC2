@@ -1,0 +1,28 @@
+
+<app-well (wellEvent)="wellEventHander($event)"
+[well]="selectedWell" [disabledsrc]="disabled"
+></app-well>
+<div class="container">
+<div *ngIf = "wellList!=''">
+<table class="table table-hover row-clickable">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>SourceKey</th>
+    </tr>
+    </thead>
+    <tbody >
+    <tr  *ngFor = "let well of wellList" (click)="RowSelected(well)">
+        <td>{{well.name}}</td>
+        <td *ngIf="well.type == 'rls'" [ngStyle]="{'background-color': color}">{{well.type}}</td>
+        <td *ngIf="well.type == 'esp'" [ngStyle]="{'background-color': colorpink}">{{well.type}}</td>
+        <td *ngIf="well.type != 'esp' && well.type != 'rls'">{{well.type}}</td>
+        <td>{{well.sourceKey}}</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+

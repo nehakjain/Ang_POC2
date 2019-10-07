@@ -1,0 +1,24 @@
+<div class="container" >
+    <h1>Well Form</h1>
+    <form #wellForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="well.name" name="name">
+      </div>
+
+      <div class="form-group">
+        <label for="type">Type</label>
+        <input type="text" class="form-control" id="type" [(ngModel)]="well.type" name="type">
+      </div>
+
+      <div class="form-group">
+        <label for="sourceKey">SourceKey</label>
+        <input type="number" class="form-control" id="sourceKey" [(ngModel)]="well.sourceKey"
+         name="sourceKey" [disabled]="disabledsrc">
+      </div>
+
+      <button type="submit" class="btn btn-success" (click)="onSubmit()">Submit</button>
+
+    </form>
+    
+</div>
